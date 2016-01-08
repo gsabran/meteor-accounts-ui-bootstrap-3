@@ -13,17 +13,17 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">{{i18n 'resetPasswordDialog.title'}}</h4>
+						<h4 class="modal-title">Reset your password</h4>
 					</div>
 					<div class="modal-body">
 						{{> _loginButtonsMessages}}
-						<input id="reset-password-new-password" class="form-control" type="password" placeholder="{{i18n 'resetPasswordDialog.newPassword'}}"/><br>
-						<input id="reset-password-new-password-again" class="form-control" type="password" placeholder="{{i18n 'resetPasswordDialog.newPasswordAgain'}}"/><br>
+						<input id="reset-password-new-password" class="form-control" type="password" placeholder="New password"/><br>
+						<input id="reset-password-new-password-again" class="form-control" type="password" placeholder="New Password (again)"/><br>
 					</div>
 					<div class="modal-footer">
-						<a class="btn btn-default" id="login-buttons-cancel-reset-password">{{i18n 'resetPasswordDialog.cancel'}}</a>
+						<a class="btn btn-default" id="login-buttons-cancel-reset-password">Cancel</a>
 						<button class="btn btn-primary" id="login-buttons-reset-password-button">
-							{{i18n 'resetPasswordDialog.submit'}}
+							Set password
 						</button>
 					</div>
 				</div><!-- /.modal-content -->
@@ -36,13 +36,13 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">{{i18n 'resetPasswordDialog.title'}}</h4>
+					<h4 class="modal-title">Reset your password</h4>
 				</div>
 				<div class="modal-body">
 					{{> _loginButtonsMessages}}
 				</div>
 				<div class="modal-footer">
-					<a class="btn btn-default" id="login-buttons-dismiss-reset-password-success">{{i18n 'loginButtonsMessagesDialog.dismiss'}}</a>
+					<a class="btn btn-default" id="login-buttons-dismiss-reset-password-success">Dismiss</a>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dalog -->
@@ -56,17 +56,17 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">{{i18n 'enrollAccountDialog.title'}}</h4>
+						<h4 class="modal-title">Choose a password</h4>
 					</div>
 					<div class="modal-body">
-						<input id="enroll-account-password" class="form-control" type="password" placeholder="{{i18n 'enrollAccountDialog.newPassword'}}" /><br>
-												<input id="enroll-account-password-again" class="form-control" type="password" placeholder="{{i18n 'enrollAccountDialog.newPasswordAgain'}}" /><br>
+						<input id="enroll-account-password" class="form-control" type="password" placeholder="New password" /><br>
+												<input id="enroll-account-password-again" class="form-control" type="password" placeholder="New Password (again)" /><br>
 						{{> _loginButtonsMessages}}
 					</div>
 					<div class="modal-footer">
-						<a class="btn btn-default" id="login-buttons-cancel-enroll-account-button">{{i18n 'enrollAccountDialog.cancel'}}</a>
+						<a class="btn btn-default" id="login-buttons-cancel-enroll-account-button">Close</a>
 						<button class="btn btn-primary" id="login-buttons-enroll-account-button">
-							{{i18n 'enrollAccountDialog.submit'}}
+							Set password
 						</button>
 					</div>
 				</div><!-- /.modal-content -->
@@ -81,10 +81,10 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-body">
-						<h4><b>{{i18n 'justVerifiedEmailDialog.verified'}}</b></h4>
+						<h4><b>Email address verified</b></h4>
 					</div>
 					<div class="modal-footer">
-						<button class="btn btn-primary login-button" id="just-verified-dismiss-button" data-dismiss="modal">{{i18n 'justVerifiedEmailDialog.dismiss'}}</button>
+						<button class="btn btn-primary login-button" id="just-verified-dismiss-button" data-dismiss="modal">Dismiss</button>
 					</div>
 				</div>
 			</div>
@@ -163,13 +163,13 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">{{i18n 'errorMessages.genericTitle'}}</h4>
+					<h4 class="modal-title">There was an error</h4>
 				</div>
 				<div class="modal-body">
 					{{> _loginButtonsMessages}}
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-primary login-button" id="messages-dialog-dismiss-button" data-dismiss="modal">{{i18n 'loginButtonsMessagesDialog.dismiss'}}</button>
+					<button class="btn btn-primary login-button" id="messages-dialog-dismiss-button" data-dismiss="modal">Dismiss</button>
 				</div>
 			</div>
 		</div>

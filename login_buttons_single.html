@@ -1,7 +1,7 @@
 <template name="_loginButtonsLoggedOutSingleLoginButton">
 	{{#if configured}}
-		<button class="login-button btn btn-block btn-{{capitalizedName}}">{{i18n 'loginButtonsLoggedOutSingleLoginButton.signInWith'}} {{capitalizedName}}</button>
+		<button class="login-button btn btn-block btn-{{capitalizedName}}">Sign in with {{capitalizedName}}</button>
 	{{else}}
-		<button class="login-button btn btn-block configure-button btn-danger">{{i18n 'loginButtonsLoggedOutSingleLoginButton.configure'}} {{capitalizedName}}</button>
+		<button class="login-button btn btn-block configure-button btn-danger">Configure {{capitalizedName}}</button>
 	{{/if}}
 </template>

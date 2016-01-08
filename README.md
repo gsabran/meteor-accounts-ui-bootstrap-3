@@ -245,8 +245,6 @@ accountsUIBootstrap3.map('es', {
 })
 ```
 
-You can use the translation files in the `i18n` folder as an example.
-
 Screenshots
 -----------
 

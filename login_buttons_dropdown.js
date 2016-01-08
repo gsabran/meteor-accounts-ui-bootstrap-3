@@ -235,7 +235,7 @@
 		fields: function() {
 			var loginFields = [{
 				fieldName: 'username-or-email',
-				fieldLabel: i18n('loginFields.usernameOrEmail'),
+				fieldLabel: "Username or Email",
 				visible: function() {
 					return _.contains(
 						["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_EMAIL", "USERNAME_AND_OPTIONAL_EMAIL"],
@@ -243,20 +243,20 @@
 				}
 			}, {
 				fieldName: 'username',
-				fieldLabel: i18n('loginFields.username'),
+				fieldLabel: "Username",
 				visible: function() {
 					return Accounts.ui._passwordSignupFields() === "USERNAME_ONLY";
 				}
 			}, {
 				fieldName: 'email',
-				fieldLabel: i18n('loginFields.email'),
+				fieldLabel: "Email",
 				inputType: 'email',
 				visible: function() {
 					return Accounts.ui._passwordSignupFields() === "EMAIL_ONLY";
 				}
 			}, {
 				fieldName: 'password',
-				fieldLabel: i18n('loginFields.password'),
+				fieldLabel: "Password",
 				inputType: 'password',
 				visible: function() {
 					return true;
@@ -265,7 +265,7 @@
 
 			var signupFields = [{
 				fieldName: 'username',
-				fieldLabel: i18n('signupFields.username'),
+				fieldLabel: "Username",
 				visible: function() {
 					return _.contains(
 						["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_EMAIL", "USERNAME_AND_OPTIONAL_EMAIL", "USERNAME_ONLY"],
@@ -273,7 +273,7 @@
 				}
 			}, {
 				fieldName: 'email',
-				fieldLabel: i18n('signupFields.email'),
+				fieldLabel: "Email",
 				inputType: 'email',
 				visible: function() {
 					return _.contains(
@@ -282,21 +282,21 @@
 				}
 			}, {
 				fieldName: 'email',
-				fieldLabel: i18n('signupFields.emailOpt'),
+				fieldLabel: "Email (optional)",
 				inputType: 'email',
 				visible: function() {
 					return Accounts.ui._passwordSignupFields() === "USERNAME_AND_OPTIONAL_EMAIL";
 				}
 			}, {
 				fieldName: 'password',
-				fieldLabel: i18n('signupFields.password'),
+				fieldLabel: "Password",
 				inputType: 'password',
 				visible: function() {
 					return true;
 				}
 			}, {
 				fieldName: 'password-again',
-				fieldLabel: i18n('signupFields.passwordAgain'),
+				fieldLabel: "Password (again)",
 				inputType: 'password',
 				visible: function() {
 					// No need to make users double-enter their password if
@@ -373,21 +373,21 @@
 		fields: function() {
 			return [{
 				fieldName: 'old-password',
-				fieldLabel: i18n('changePasswordFields.currentPassword'),
+				fieldLabel: "Current Password",
 				inputType: 'password',
 				visible: function() {
 					return true;
 				}
 			}, {
 				fieldName: 'password',
-				fieldLabel: i18n('changePasswordFields.newPassword'),
+				fieldLabel: "New Password",
 				inputType: 'password',
 				visible: function() {
 					return true;
 				}
 			}, {
 				fieldName: 'password-again',
-				fieldLabel: i18n('changePasswordFields.newPasswordAgain'),
+				fieldLabel: "New Password (again)",
 				inputType: 'password',
 				visible: function() {
 					// No need to make users double-enter their password if
@@ -501,9 +501,9 @@
 		Meteor.loginWithPassword(loginSelector, password, function(error, result) {
 			if (error) {
 				if (error.reason == 'User not found'){
-					loginButtonsSession.errorMessage(i18n('errorMessages.userNotFound'))
+					loginButtonsSession.errorMessage("User not found")
 				} else if (error.reason == 'Incorrect password'){
-					loginButtonsSession.errorMessage(i18n('errorMessages.incorrectPassword'))
+					loginButtonsSession.errorMessage("Incorrect password")
 				} else {
 					loginButtonsSession.errorMessage(error.reason || "Unknown error");
 				}
@@ -619,7 +619,7 @@
 		Accounts.createUser(options, function(error) {
 			if (error) {
 				if (error.reason == 'Signups forbidden'){
-					loginButtonsSession.errorMessage(i18n('errorMessages.signupsForbidden'))
+					loginButtonsSession.errorMessage("Signups forbidden")
 				} else {
 					loginButtonsSession.errorMessage(error.reason || "Unknown error");
 				}
@@ -639,16 +639,16 @@
 			}, function(error) {
 				if (error) {
 					if (error.reason == 'User not found'){
-						loginButtonsSession.errorMessage(i18n('errorMessages.userNotFound'))
+						loginButtonsSession.errorMessage("User not found")
 					} else {
 						loginButtonsSession.errorMessage(error.reason || "Unknown error");
 					}
 				} else {
-					loginButtonsSession.infoMessage(i18n('infoMessages.emailSent'));
+					loginButtonsSession.infoMessage("Email sent");
 				}
 			});
 		} else {
-			loginButtonsSession.errorMessage(i18n('forgotPasswordForm.invalidEmail'));
+			loginButtonsSession.errorMessage("Invalid email");
 		}
 	};
 	var changePassword = function() {
@@ -659,7 +659,7 @@
 		var password = elementValueById('login-password');
 
 		if (password == oldPassword) {
-			loginButtonsSession.errorMessage(i18n('errorMessages.newPasswordSameAsOld'));
+			loginButtonsSession.errorMessage("New and old passwords must be different");
 			return;
 		}
 
@@ -674,12 +674,12 @@
 		Accounts.changePassword(oldPassword, password, function(error) {
 			if (error) {
 				if (error.reason == 'Incorrect password'){
-					loginButtonsSession.errorMessage(i18n('errorMessages.incorrectPassword'))
+					loginButtonsSession.errorMessage("Incorrect password")
 				} else {
 					loginButtonsSession.errorMessage(error.reason || "Unknown error");
 				}
 			} else {
-				loginButtonsSession.infoMessage(i18n('infoMessages.passwordChanged'));
+				loginButtonsSession.infoMessage("Password changed");
 
 				// wait 3 seconds, then expire the msg
 				Meteor.setTimeout(function() {
@@ -696,7 +696,7 @@
 			// notably not trimmed. a password could (?) start or end with a space
 			var password = elementValueById('login-password');
 			if (password !== passwordAgain) {
-				loginButtonsSession.errorMessage(i18n('errorMessages.passwordsDontMatch'));
+				loginButtonsSession.errorMessage("Passwords don't match");
 				return false;
 			}
 		}

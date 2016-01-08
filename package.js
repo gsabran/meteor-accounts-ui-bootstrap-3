@@ -1,8 +1,8 @@
 Package.describe({
-	name: 'ian:accounts-ui-bootstrap-3',
+	name: 'gsabran:accounts-ui-bootstrap-3',
 	summary: 'Bootstrap-styled accounts-ui with multi-language support.',
-	version: '1.2.84',
-	git: "https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3"
+	version: '1.2.85',
+	git: "https://github.com/gsabran/meteor-accounts-ui-bootstrap-3"
 })
 
 Package.on_use(function (api) {
@@ -11,8 +11,7 @@ Package.on_use(function (api) {
 		'stylus@1.0.0 || 2.0.0',
 		'accounts-base@1.0.0',
 		'underscore@1.0.0',
-		'templating@1.0.0',
-		'anti:i18n@0.4.3'
+		'templating@1.0.0'
 		],'client')
 
 	api.imply('accounts-base', ['client', 'server']);
@@ -29,34 +28,6 @@ Package.on_use(function (api) {
 
 	api.add_files([
 		'accounts_ui.js',
-
-		// translations
-		'i18n/en.i18n.js',
-		'i18n/es.i18n.js',
-		'i18n/ca.i18n.js',
-		'i18n/fr.i18n.js',
-		'i18n/de.i18n.js',
-		'i18n/it.i18n.js',
-		'i18n/pt-PT.i18n.js',
-		'i18n/pt-BR.i18n.js',
-		'i18n/pt.i18n.js',
-		'i18n/ru.i18n.js',
-		'i18n/el.i18n.js',
-		'i18n/ko.i18n.js',
-		'i18n/ar.i18n.js',
-		'i18n/pl.i18n.js',
-		'i18n/zh-CN.i18n.js',
-		'i18n/zh-TW.i18n.js',
-		'i18n/zh.i18n.js',
-		'i18n/nl.i18n.js',
-		'i18n/ja.i18n.js',
-		'i18n/he.i18n.js',
-    'i18n/sv.i18n.js',
-    'i18n/ua.i18n.js',
-    'i18n/fi.i18n.js',
-    'i18n/vi.i18n.js',
-    'i18n/sk.i18n.js',
-		'i18n.js',
 
 		'login_buttons.html',
 		'login_buttons_single.html',

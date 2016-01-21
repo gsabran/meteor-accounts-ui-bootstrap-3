@@ -41,7 +41,10 @@
 <!--            -->
 <template name="_loginButtonsLoggedOutDropdown">
 	<li id="login-dropdown-list" class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown">Sign in{{#unless forbidClientAccountCreation}} / Join{{/unless}} <b class="caret"></b></a>
+        <button class="dropdown-toggle btn btn-primary col-xs-12 col-sm-12"  type="button" data-toggle="dropdown">
+        	Signin
+        	<b class="caret"></b>
+        </button>
 		<div class="dropdown-menu">
 			{{> _loginButtonsLoggedOutAllServices}}
 		</div>

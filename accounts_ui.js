@@ -23,14 +23,23 @@ Accounts.ui.navigate = function (route, hash) {
 
 Accounts.ui.config = function(options) {
 	// validate options keys
-	var VALID_KEYS = ['passwordSignupFields', 'extraSignupFields', 'forceEmailLowercase', 'forceUsernameLowercase','forcePasswordLowercase',
-	'requestPermissions', 'requestOfflineToken', 'forceApprovalPrompt'];
+	var VALID_KEYS = ['onCreate', 'passwordSignupFields', 'extraSignupFields', 'forceEmailLowercase', 'forceUsernameLowercase','forcePasswordLowercase',
+	'requestPermissions', 'requestOfflineToken', 'forceApprovalPrompt', 'forbidClientAccountCreation'];
 
 	_.each(_.keys(options), function(key) {
 		if (!_.contains(VALID_KEYS, key)){
 			throw new Error("Accounts.ui.config: Invalid key: " + key);
 		}
 	});
+
+	if (options.onCreate && typeof options.onCreate === 'function') {
+		Accounts.ui._options.onCreate = options.onCreate;
+	} else if (! options.onCreate ) {
+		//ignore and skip
+	} else {
+		throw new Error("Accounts.ui.config: Value for 'onCreate' must be a" +
+				" function");
+	}
 
 	options.extraSignupFields = options.extraSignupFields || [];
 
@@ -56,6 +65,7 @@ Accounts.ui.config = function(options) {
 	Accounts.ui._options.forceEmailLowercase = options.forceEmailLowercase;
 	Accounts.ui._options.forceUsernameLowercase = options.forceUsernameLowercase;
 	Accounts.ui._options.forcePasswordLowercase = options.forcePasswordLowercase;
+	Accounts.ui._options.forbidClientAccountCreation = options.forbidClientAccountCreation;
 
 	// deal with `requestPermissions`
 	if (options.requestPermissions) {

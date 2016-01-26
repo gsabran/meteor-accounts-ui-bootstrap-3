@@ -224,7 +224,14 @@ accountsUIBootstrap3.setLanguage('nl'); // for Dutch
 accountsUIBootstrap3.setLanguage('ja'); // for Japanese
 accountsUIBootstrap3.setLanguage('he'); // for Hebrew
 accountsUIBootstrap3.setLanguage('sv'); // for Swedish
-accountsUIBootstrap3.setLanguage('ua'); // for Ukrainian
+accountsUIBootstrap3.setLanguage('uk'); // for Ukrainian
+accountsUIBootstrap3.setLanguage('fi'); // for Finnish
+accountsUIBootstrap3.setLanguage('vi'); // for Vietnamese
+accountsUIBootstrap3.setLanguage('sk'); // for Slovak
+accountsUIBootstrap3.setLanguage('be'); // for Belarusian
+accountsUIBootstrap3.setLanguage('fa'); // for Persian
+accountsUIBootstrap3.setLanguage('sr-Cyrl'); // for Serbian, Cyrillian script
+accountsUIBootstrap3.setLanguage('sr-Latn'); // for Serbian, Latin script
 ```
 
 If you want to implement your own language, use the `map` function like so:

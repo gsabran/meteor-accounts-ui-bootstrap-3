@@ -106,29 +106,37 @@
 			event.stopPropagation();
 			loginButtonsSession.resetMessages();
 
-			// store values of fields before swtiching to the signup form
-			var username = trimmedElementValueById('login-username');
-			var email = trimmedElementValueById('login-email');
-			var usernameOrEmail = trimmedElementValueById('login-username-or-email');
-			// notably not trimmed. a password could (?) start or end with a space
-			var password = elementValueById('login-password');
+			//check to see if onCreate is populated with a function. If it is, call it
+			var onCreateFn = Accounts.ui._options.onCreate;
+			if (onCreateFn){
+				loginButtonsSession.closeDropdown();
+				onCreateFn.apply();
 
-			loginButtonsSession.set('inSignupFlow', true);
-			loginButtonsSession.set('inForgotPasswordFlow', false);
+			} else {
+				// store values of fields before swtiching to the signup form
+				var username = trimmedElementValueById('login-username');
+				var email = trimmedElementValueById('login-email');
+				var usernameOrEmail = trimmedElementValueById('login-username-or-email');
+				// notably not trimmed. a password could (?) start or end with a space
+				var password = elementValueById('login-password');
 
-			// force the ui to update so that we have the approprate fields to fill in
-			Meteor.flush();
+				loginButtonsSession.set('inSignupFlow', true);
+				loginButtonsSession.set('inForgotPasswordFlow', false);
 
-			// update new fields with appropriate defaults
-			if (username !== null){
-				document.getElementById('login-username').value = username;
-			} else if (email !== null){
-				document.getElementById('login-email').value = email;
-			} else if (usernameOrEmail !== null){
-				if (usernameOrEmail.indexOf('@') === -1){
-					document.getElementById('login-username').value = usernameOrEmail;
-				} else {
-					document.getElementById('login-email').value = usernameOrEmail;
+				// force the ui to update so that we have the approprate fields to fill in
+				Meteor.flush();
+
+				// update new fields with appropriate defaults
+				if (username !== null) {
+					document.getElementById('login-username').value = username;
+				} else if (email !== null) {
+					document.getElementById('login-email').value = email;
+				} else if (usernameOrEmail !== null) {
+					if (usernameOrEmail.indexOf('@') === -1) {
+						document.getElementById('login-username').value = usernameOrEmail;
+					} else {
+						document.getElementById('login-email').value = usernameOrEmail;
+					}
 				}
 			}
 		},
@@ -189,7 +197,7 @@
 
 	Template._loginButtonsLoggedOutDropdown.helpers({
 		forbidClientAccountCreation: function() {
-			return Accounts._options.forbidClientAccountCreation;
+			return Accounts.ui._options.forbidClientAccountCreation;
 		}
 	});
 
@@ -332,7 +340,7 @@
 		},
 
 		showCreateAccountLink: function() {
-			return !Accounts._options.forbidClientAccountCreation;
+			return !Accounts.ui._options.forbidClientAccountCreation;
 		}
 	});
 

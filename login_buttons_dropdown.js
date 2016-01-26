@@ -140,6 +140,11 @@
 				}
 			}
 		},
+
+		'click #beta-link': function(event) {
+			Session.set('focusOnBetaSignup', true);
+			Router.go('home');
+		},
 		'click #forgot-password-link': function(event) {
 			event.stopPropagation();
 			loginButtonsSession.resetMessages();
@@ -340,8 +345,8 @@
 		},
 
 		showCreateAccountLink: function() {
-			return !Accounts.ui._options.forbidClientAccountCreation;
-		}
+			return Session.get('signupAuth');
+		},
 	});
 
 	Template._loginButtonsFormField.helpers({

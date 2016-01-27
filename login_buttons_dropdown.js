@@ -141,10 +141,6 @@
 			}
 		},
 
-		'click #beta-link': function(event) {
-			Session.set('focusOnBetaSignup', true);
-			Router.go('home');
-		},
 		'click #forgot-password-link': function(event) {
 			event.stopPropagation();
 			loginButtonsSession.resetMessages();

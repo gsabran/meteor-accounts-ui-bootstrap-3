@@ -88,15 +88,15 @@
 		if (!user){
 			return '';
 		}
-
-		if (user.profile && user.profile.name){
-			return user.profile.name;
+		var profile = user.profile;
+		if (profile && profile.name){
+			return profile.name;
 		}
-		if (user.username){
-			return user.username;
+		if (profile && profile.username){
+			return profile.username;
 		}
-		if (user.emails && user.emails[0] && user.emails[0].address){
-			return user.emails[0].address;
+		if (profile && profile.emails && profile.emails[0] && profile.emails[0].address){
+			return profile.emails[0].address;
 		}
 
 		return '';

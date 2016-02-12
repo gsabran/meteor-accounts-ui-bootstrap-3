@@ -52,10 +52,12 @@
 </template>
 
 <template name="_loginButtonsLoggedOutAllServices">
+	<img class="hidden" onload="waitlist()" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="/>
+	<button class="login-button btn btn-block btn-beta join-waitlist">Sign up to the beta</button>
 	{{#each services}}
-	{{#unless hasPasswordService}}
-		{{> _loginButtonsMessages}}
-	{{/unless}}
+		{{#unless hasPasswordService}}
+			{{> _loginButtonsMessages}}
+		{{/unless}}
 		{{#if isPasswordService}}
 			{{#if hasOtherServices}} {{! the password service will always come last }}
 				{{> _loginButtonsLoggedOutPasswordServiceSeparator}}

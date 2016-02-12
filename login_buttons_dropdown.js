@@ -72,7 +72,8 @@
 			//
 			// instead we use the heuristic: if the user has a username or email set.
 			var user = Meteor.user();
-			return user.username || (user.emails && user.emails[0] && user.emails[0].address);
+			var profile = user.profile;
+			return profile.username || (profile.emails && profile.emails[0] && profile.emails[0].address);
 		},
 		additionalLoggedInDropdownActions: function() {
 			return Template._loginButtonsAdditionalLoggedInDropdownActions !== undefined;

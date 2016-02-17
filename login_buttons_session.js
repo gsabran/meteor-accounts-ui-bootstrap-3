@@ -50,7 +50,7 @@
 		},
 
 		closeDropdown: function () {
-			this.set('inSignupFlow', false);
+			this.set('inSignupFlow', Session.get('signupAuth'));
 			this.set('inForgotPasswordFlow', false);
 			this.set('inChangePasswordFlow', false);
 			this.set('inMessageOnlyFlow', false);

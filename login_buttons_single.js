@@ -47,7 +47,11 @@
 			} else {
 				return capitalize(this.name);
 			}
-		}
+		},
+
+		inSignupFlow: function() {
+			return loginButtonsSession.get('inSignupFlow');
+		},
 	});
 
 

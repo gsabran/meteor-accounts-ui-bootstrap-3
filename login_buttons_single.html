@@ -1,6 +1,6 @@
 <template name="_loginButtonsLoggedOutSingleLoginButton">
 	{{#if configured}}
-		<button class="login-button btn btn-block btn-{{capitalizedName}}">Sign in with {{capitalizedName}}</button>
+		<button class="login-button btn btn-block btn-{{capitalizedName}}">Sign {{#if inSignupFlow}}up{{else}}in{{/if}} with {{capitalizedName}}</button>
 	{{else}}
 		<button class="login-button btn btn-block configure-button btn-danger">Configure {{capitalizedName}}</button>
 	{{/if}}

@@ -200,11 +200,19 @@
 	Template._loginButtonsLoggedOutDropdown.helpers({
 		forbidClientAccountCreation: function() {
 			return Accounts.ui._options.forbidClientAccountCreation;
-		}
+		},
+
+		inSignupFlow: function() {
+			return loginButtonsSession.get('inSignupFlow');
+		},
+	});
+
+	Template._loginButtonsLoggedOutDropdown.onRendered(function() {
+		if (Session.get('signupAuth'))
+			$('#login-dropdown-list .dropdown-toggle').dropdown('toggle');
 	});
 
 	Template._loginButtonsLoggedOutAllServices.helpers({
-		// additional classes that can be helpful in styling the dropdown
 		additionalClasses: function() {
 			if (!Accounts.password) {
 				return false;
@@ -237,7 +245,11 @@
 
 		hasPasswordService: function() {
 			return Accounts._loginButtons.hasPasswordService();
-		}
+		},
+
+		canSignup: function() {
+			return Session.get('signupAuth');
+		},
 	});
 
 
@@ -344,6 +356,10 @@
 		showCreateAccountLink: function() {
 			return Session.get('signupAuth');
 		},
+	});
+
+	Template._loginButtonsLoggedOutPasswordService.onRendered(function() {
+		loginButtonsSession.set('inSignupFlow', Session.get('signupAuth'));
 	});
 
 	Template._loginButtonsFormField.helpers({

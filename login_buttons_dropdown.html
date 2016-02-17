@@ -42,7 +42,7 @@
 <template name="_loginButtonsLoggedOutDropdown">
 	<li id="login-dropdown-list" class="dropdown">
         <button class="dropdown-toggle btn btn-primary col-xs-12 col-sm-12"  type="button" data-toggle="dropdown">
-        	Sign in
+        	Sign {{#if inSignupFlow}}up{{else}}in{{/if}}
         	<b class="caret"></b>
         </button>
 		<div class="dropdown-menu">
@@ -52,8 +52,9 @@
 </template>
 
 <template name="_loginButtonsLoggedOutAllServices">
-	<img class="hidden" onload="waitlist()" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="/>
-	<button class="login-button btn btn-block btn-beta join-waitlist">Sign up to the beta</button>
+	{{#unless canSignup}}
+		<button class="login-button btn btn-block btn-beta" onclick="showWaitlisted()">Request beta access</button>
+	{{/unless}}
 	{{#each services}}
 		{{#unless hasPasswordService}}
 			{{> _loginButtonsMessages}}

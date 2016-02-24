@@ -183,7 +183,7 @@ If the function `accountsUIBootstrap3.logoutCallback` exists, it will be called 
 ```javascript
 accountsUIBootstrap3.logoutCallback = function(error) {
   if(error) console.log("Error:" + error);
-  Router.go('home');
+  FlowRouter.go('/');
 }
 ```
 

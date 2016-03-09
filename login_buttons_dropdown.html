@@ -105,6 +105,7 @@
 		{{/if}}
 		{{#if inSignupFlow}}
 			{{> _loginButtonsBackToLoginLink}}
+			{{> termsAndConditions}}
 		{{/if}}
 	{{/if}}
 </template>
@@ -122,6 +123,12 @@
 
 <template name="_loginButtonsBackToLoginLink">
 		<button id="back-to-login-link" class="btn btn-default col-xs-12 col-sm-12">Cancel</button>
+</template>
+
+<template name="termsAndConditions">
+	<div class="termsAndConditions">
+		<input type="checkbox" id="termsAndPrivacy"/>I agree with the <a href="/pdf/PrivacyGuidelines.pdf" target="_blank">terms of use and privacy</a>
+	</div>
 </template>
 
 <template name="_loginButtonsFormField">

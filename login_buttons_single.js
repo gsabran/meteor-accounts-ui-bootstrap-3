@@ -3,7 +3,21 @@
 	var loginButtonsSession = Accounts._loginButtonsSession;
 
 	Template._loginButtonsLoggedOutSingleLoginButton.events({
-		'click .login-button': function() {
+		'click .login-button': function(e) {
+
+			if (loginButtonsSession.get('inSignupFlow')){
+				var terms = document.getElementById('termsAndPrivacy'),
+					$terms = $(terms);
+				if (terms.checked) {
+					$terms.removeClass('input_error');
+				} else {
+					$terms.addClass('input_error');
+					e.stopPropagation();
+					e.preventDefault();
+					return;
+				}
+			}
+
 			var serviceName = this.name;
 			loginButtonsSession.resetMessages();
 			var callback = function(err) {

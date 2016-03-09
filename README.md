@@ -75,7 +75,7 @@ the corresponding events.
 ```javascript
 Template._loginButtonsLoggedInDropdown.events({
 	'click #login-buttons-edit-profile': function(event) {
-		Router.go('profileEdit');
+		Router.go('/profileEdit');
 	}
 });
 ```
@@ -183,7 +183,7 @@ If the function `accountsUIBootstrap3.logoutCallback` exists, it will be called 
 ```javascript
 accountsUIBootstrap3.logoutCallback = function(error) {
   if(error) console.log("Error:" + error);
-  FlowRouter.go('/');
+  FlowRouter.go('');
 }
 ```
 

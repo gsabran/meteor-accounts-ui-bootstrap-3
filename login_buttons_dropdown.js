@@ -467,7 +467,14 @@
 
 	var loginOrSignup = function() {
 		if (loginButtonsSession.get('inSignupFlow')){
-			signup();
+			var terms = document.getElementById('termsAndPrivacy'),
+				$terms = $(terms);
+			if (terms.checked) {
+				$terms.removeClass('input_error');
+				signup();
+			} else {
+				$terms.addClass('input_error');
+			}
 		} else {
 			login();
 		}

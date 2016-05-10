@@ -53,7 +53,7 @@
 
 <template name="_loginButtonsLoggedOutAllServices">
 	{{#unless canSignup}}
-		<button class="login-button btn btn-block btn-beta" onclick="showWaitlisted()">Request beta access</button>
+		<button class="login-button btn btn-block btn-beta" onclick="showWaitlist()">Request beta access</button>
 	{{/unless}}
 	{{#each services}}
 		{{#unless hasPasswordService}}

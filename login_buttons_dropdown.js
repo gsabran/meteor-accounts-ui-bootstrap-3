@@ -207,10 +207,10 @@
 		},
 	});
 
-	Template._loginButtonsLoggedOutDropdown.onRendered(function() {
-		if (Session.get('signupAuth'))
-			$('#login-dropdown-list .dropdown-toggle').dropdown('toggle');
-	});
+	// Template._loginButtonsLoggedOutDropdown.onRendered(function() {
+	// 	if (Session.get('signupAuth'))
+	// 		$('#login-dropdown-list .dropdown-toggle').dropdown('toggle');
+	// });
 
 	Template._loginButtonsLoggedOutAllServices.helpers({
 		additionalClasses: function() {
@@ -245,10 +245,6 @@
 
 		hasPasswordService: function() {
 			return Accounts._loginButtons.hasPasswordService();
-		},
-
-		canSignup: function() {
-			return Session.get('signupAuth');
 		},
 	});
 
@@ -352,14 +348,10 @@
 				["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_EMAIL", "USERNAME_AND_OPTIONAL_EMAIL", "EMAIL_ONLY"],
 				Accounts.ui._passwordSignupFields());
 		},
-
-		showCreateAccountLink: function() {
-			return Session.get('signupAuth');
-		},
 	});
 
 	Template._loginButtonsLoggedOutPasswordService.onRendered(function() {
-		loginButtonsSession.set('inSignupFlow', Session.get('signupAuth'));
+		loginButtonsSession.set('inSignupFlow', false);
 	});
 
 	Template._loginButtonsFormField.helpers({

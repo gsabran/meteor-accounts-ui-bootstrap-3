@@ -69,14 +69,10 @@
 	//
 
 	Template._loginButtonsMessages.helpers({
-		errorMessage: function() {
-			return loginButtonsSession.get('errorMessage');
+		inSignupFlow: function() {
+			return loginButtonsSession.get('inSignupFlow');
 		},
-		infoMessage: function() {
-			return loginButtonsSession.get('infoMessage');
-		}
 	});
-
 
 
 	//

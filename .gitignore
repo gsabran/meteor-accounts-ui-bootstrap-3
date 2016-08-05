@@ -52,7 +52,7 @@ Temporary Items
 ### Meteor ###
 .meteor/local
 .meteor/meteorite
-
+.npm
 
 ### SublimeText ###
 # cache files for sublime text
